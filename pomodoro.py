@@ -28,7 +28,7 @@ def start_tracking():
 	while(True):
 		diff = (datetime.datetime.now() - last_beep).total_seconds() / 60.0 #in minutes
 		#diff = diff.total_seconds() / (60.0) 
-		if (diff >= 2): #30
+		if (diff >= 30): #30
 			reminder_text = "%s:%s" % (project_details['name'], project_details['category'])
 			diff = (datetime.datetime.now() - session_start_time)
 			diff = diff.total_seconds() / (60.0) #in minutes
