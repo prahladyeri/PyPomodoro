@@ -17,18 +17,20 @@ project_details = {
 	"category" : "",
 	}
 last_beep = None
+interval = 30 #minutes
 timesheet = [] #{project: <project_details>, start_time: <datetime>, end_time: <datetime>} TODO: get this from pickle
 
 def start_tracking():
 	global project_details, last_beep
 	print("Working on %s:%s" % (project_details['name'], project_details['category']))
-	print("Started tracking %s" % (datetime.datetime.now()))
+	print("Started tracking at %s" % (datetime.datetime.now()))
+	print("Beep interval is set to %d" % interval)
 	session_start_time = datetime.datetime.now()
 	last_beep = datetime.datetime.now()
 	while(True):
 		diff = (datetime.datetime.now() - last_beep).total_seconds() / 60.0 #in minutes
 		#diff = diff.total_seconds() / (60.0) 
-		if (diff >= 30): #30
+		if (diff >= interval): #30
 			reminder_text = "%s:%s" % (project_details['name'], project_details['category'])
 			diff = (datetime.datetime.now() - session_start_time)
 			diff = diff.total_seconds() / (60.0) #in minutes
