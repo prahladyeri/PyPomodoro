@@ -5,9 +5,9 @@ schedule = [
 	#{"name":"find jobs on upwork", "category": "freelance-jobsearch", "duration":30},
 	#{"name":"tea break", "category": "tea break", "duration":15},
 	#{"name":"complete article on php drive example", "category": "blogging", "duration":30},
-	{"name":"Solve puzzles at freecodecamp.", "category": "programming", "duration":60},
-	{"name":"Solve puzzles at kattis.", "category": "programming", "duration":60},
-	{"name":"Improve website.", "category": "webdev", "duration":45},
+	{"name":"Solve puzzles at freecodecamp.", "category": "programming", "duration":40},
+	{"name":"Solve puzzles at kattis.", "category": "programming", "duration":40},
+	{"name":"Improve website.", "category": "webdev", "duration":30},
 	{"name":"Work on VA.", "category": "webdev", "duration":60},
 	{"name":"revise java", "category": "programming-java", "duration":30},
 	{"name":"revise android", "category": "programming-android", "duration":30},
@@ -15,7 +15,7 @@ schedule = [
 	# {"name":"revise webdev", "category": "programming-php", "duration":30},
 ]
 
-slot_interval = 30 #minutes
+slot_interval = 25 #minutes
 
 
 # {"name":"implement killall.py in python", "category": "programming-python", "duration":30},

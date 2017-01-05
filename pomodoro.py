@@ -1,5 +1,4 @@
 """Time tracking utility for Freelancers"""
-import winsound
 import os
 import time, datetime, pickle
 import config
@@ -15,6 +14,15 @@ __status__ = "Development" #Production, Prototype
 
 last_beep = None
 timesheet = [] #{project: <project_details>, start_time: <datetime>, end_time: <datetime>} TODO: get this from pickle
+
+def beep():
+	if os.name == 'nt':
+		import winsound
+		winsound.Beep(900,800)
+	else:
+		for i in range(10):
+			print("\a")
+			time.sleep(0.5)
 
 """Updates the start time in config.schedule as per the current time."""
 def set_schedule():
@@ -58,7 +66,8 @@ def start_tracking(task):
 			#notify
 			diff = (now - session_start_time)
 			diff = diff.total_seconds() / (60.0) #in minutes
-			winsound.Beep(900,800)
+			#winsound.Beep(900,800)
+			beep()
 			print("Reminder for %s" % reminder_text)
 			print("Minutes worked in this session: %s." % minutes_worked)
 			print("****")
@@ -73,7 +82,8 @@ def start_tracking(task):
 			print("Task complete: %s." % reminder_text)
 			diff = (now - session_start_time)
 			diff = diff.total_seconds() / (60.0) #in minutes
-			winsound.Beep(900,1400)
+			#winsound.Beep(900,1400)
+			beep()
 			print("Minutes worked in this session: %s." % minutes_worked)
 			print("****")
 			notified = True
