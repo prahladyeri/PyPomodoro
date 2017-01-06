@@ -57,6 +57,7 @@ def start_tracking(task):
 	last_beep = datetime.datetime.now()
 	notified = False
 	while(True):
+		time.sleep(5 * 60)
 		now = datetime.datetime.now()
 		diff = (now - last_beep).total_seconds() / 60.0 #in minutes
 		minutes_worked = round(diff)
@@ -98,6 +99,8 @@ def start_tracking(task):
 				else:
 					print("Switching to next Task.")
 					start_tracking(config.schedule[idx])
+			else:
+				break
 
 def main():
 	global project_details, last_beep
