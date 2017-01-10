@@ -57,7 +57,7 @@ def start_tracking(task):
 	last_beep = datetime.datetime.now()
 	notified = False
 	while(True):
-		time.sleep(5 * 60)
+		time.sleep(1 * 60)
 		now = datetime.datetime.now()
 		diff = (now - last_beep).total_seconds() / 60.0 #in minutes
 		minutes_worked = round(diff)
