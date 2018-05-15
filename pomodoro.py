@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Time tracking utility for Freelancers"""
 import os
 import time, datetime, pickle
@@ -21,7 +22,10 @@ def beep():
 		winsound.Beep(900,800)
 	else:
 		for i in range(10):
-			print("\a")
+			#print("\a")
+			#bell_file = "/usr/share/sounds/ubuntu/notifications/Xylo.ogg"
+			bell_file = "/usr/share/sounds/freedesktop/stereo/complete.oga"
+			os.system('paplay ' + bell_file)
 			time.sleep(0.5)
 
 """Updates the start time in config.schedule as per the current time."""
@@ -78,6 +82,10 @@ def start_tracking(task):
 			"end_time": datetime.datetime.now()
 			})
 			pickle.dump(timesheet, open('timesheet.pkl','wb'),-1)
+			while(True):
+				#just pause until user enters a character indicating that break is over
+				time.sleep(300) #5 minutes
+				if (input("Resume? Y/n: ").lower() == 'y'): break
 			last_beep = now
 		elif (now >= task_end_time and notified == False):
 			print("Task complete: %s." % reminder_text)
@@ -99,6 +107,7 @@ def start_tracking(task):
 				else:
 					print("Switching to next Task.")
 					start_tracking(config.schedule[idx])
+					break
 			else:
 				break
 
