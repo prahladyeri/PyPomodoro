@@ -5,13 +5,15 @@ PyPomodoro is a small script that beeps every 30 minutes to remind you of your t
 
 To install this script, just [download](https://github.com/prahladyeri/PyPomodoro/archive/master.zip) the repo and extract this in a folder.
 
-To use this script, first you have to edit the `config.py` file and set a schedule (bunch of tasks with an approximate duration and category) like this:
+To use this script, first you have to create a `config.py` file and set a schedule (bunch of tasks with an approximate duration and category) and a `slot_interval` like this:
 
 	schedule = [
 		{"name":"idle", "category":"", "duration":30},
 		{"name":"work on pomodoro script", "category":"pomodoro", "duration":30},
 		{"name":"work on job search", "category": "freelance-jobsearch", "duration":30},
 	]
+	
+	slot_interval = 25 #minutes
 
 After that, you can start the script and choose the option to start tracking:
 
